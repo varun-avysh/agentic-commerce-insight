@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rise of Agentic Commerce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F5F5;
+            color: #212121;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .tab-btn.active {
+            color: #3F51B5;
+            border-bottom: 2px solid #3F51B5;
+        }
+        .tab-panel {
+            display: none;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+        .flow-step {
+            min-width: 150px;
+        }
+        .flow-arrow {
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="p-8 text-white text-center shadow-lg" style="background-color: #3F51B5;">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">The Agentic Commerce Revolution</h1>
+        <p class="text-xl md:text-2xl opacity-90">How AI Agents Are Reshaping E-Commerce</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <section class="text-center my-12 md:my-16">
+            <h2 class="text-3xl font-bold mb-4" style="color: #673AB7;">From Clicks to Conversations</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-8">Agentic commerce shifts e-commerce from a manual, user-driven search process (clicks) to an automated, AI-driven delegation process (conversations). Users state their complex intent, and AI agents execute tasks on their behalf.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <span class="text-5xl font-bold" style="color: #E91E63;">70%</span>
+                    <p class="text-lg mt-2">Projected increase in e-commerce efficiency from AI agents by 2028.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <span class="text-5xl font-bold" style="color: #9C27B0;">45%</span>
+                    <p class="text-lg mt-2">Of transactions are expected to be initiated or handled by agents in the next decade.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <span class="text-5xl font-bold" style="color: #F44336;">$100B+</span>
+                    <p class="text-lg mt-2">Potential market shift towards platforms that master agent-to-agent negotiation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-8" style="color: #673AB7;">The Two-Sided Revolution</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4" style="border-color: #3F51B5;">
+                    <h3 class="text-2xl font-bold mb-4 text-center">The Consumer Agent</h3>
+                    <p class="mb-4">Acts as a personal shopper, understanding complex intent across multiple factors like price, brand, shipping, and user reviews. It works 24/7 to find the best possible match for the user's needs.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Use Case:</strong> "Find me a vegan leather handbag, under $150, that can be delivered in 2 days and has at least a 4.5-star rating."</li>
+                        <li><strong>Real-World Example:</strong> Perplexity's search can compare products based on nuanced features, and OpenAI's GPTs can be configured as expert shopping assistants.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4" style="border-color: #E91E63;">
+                    <h3 class="text-2xl font-bold mb-4 text-center">The Merchant Agent</h3>
+                    <p class="mb-4">Automates seller operations. It manages inventory in real-time, adjusts pricing based on demand, handles customer service queries, and even generates product descriptions and marketing copy.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Use Case:</strong> "Dynamically lower the price of Item X by 10% if inventory is over 500 units and a competitor's price is lower."</li>
+                        <li><strong>Real-World Example:</strong> Amazon's AI tools for sellers automatically generate product listings and manage advertising bids to optimize sales for merchants.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-4" style="color: #673AB7;">Deep Dive: The Consumer Agent</h2>
+            <p class="text-lg text-center max-w-3xl mx-auto mb-8">The consumer agent's primary role is to move beyond keywords. It must parse natural language, understand implicit preferences, and act on a complex set of constraints provided by the user.</p>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold text-center mb-4">Key Functional & Technical Challenges</h3>
+                <div class="chart-container">
+                    <canvas id="consumerAgentChart"></canvas>
+                </div>
+                <p class="text-center mt-4">Understanding the nuance and ambiguity of human intent remains the top challenge, followed closely by user trust and data privacy concerns.</p>
+            </div>
+        </section>
+
+        <section class="my-16">
+             <h2 class="text-3xl font-bold text-center mb-4" style="color: #673AB7;">Deep Dive: The Merchant Agent</h2>
+             <p class="text-lg text-center max-w-3xl mx-auto mb-8">For sellers, merchant agents promise to automate the complex backend of e-commerce. Their reliability is critical for a merchant's success, requiring flawless data integration and real-time responsiveness.</p>
+             <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold text-center mb-4">Key Functional & Technical Challenges</h3>
+                <div class="chart-container">
+                    <canvas id="merchantAgentChart"></canvas>
+                </div>
+                <p class="text-center mt-4">Real-time data synchronization across disparate systems (inventory, CRM, pricing) is the most significant technical hurdle for merchant agents.</p>
+            </div>
+        </section>
+
+        <section class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-4" style="color: #673AB7;">The Core Interaction: Agent Negotiation</h2>
+            <p class="text-lg text-center max-w-3xl mx-auto mb-8">This is where the paradigm truly shifts. Consumer and merchant agents communicate directly, in milliseconds, to negotiate and execute transactions based on availability, price, and shipping estimates.</p>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8 overflow-x-auto">
+                <h3 class="text-2xl font-bold text-center mb-6">Negotiation & Transaction Flow</h3>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                    <div class="text-center p-4 border-2 rounded-lg flow-step" style="border-color: #673AB7;">
+                        <span class="text-4xl">👤</span>
+                        <p class="font-bold">1. Consumer Agent</p>
+                        <p class="text-sm">"Find blue running shoe, size 10, under $80, deliver by Fri."</p>
+                    </div>
+                    <div class="flow-arrow text-center md:rotate-0 rotate-90" style="color: #9C27B0;">→</div>
+                    <div class="text-center p-4 border-2 rounded-lg flow-step" style="border-color: #9C27B0;">
+                        <span class="text-4xl">📡</span>
+                        <p class="font-bold">2. Marketplace API</p>
+                        <p class="text-sm">Broadcasts query to relevant Merchant Agents.</p>
+                    </div>
+                    <div class="flow-arrow text-center md:rotate-0 rotate-90" style="color: #E91E63;">→</div>
+                    <div class="text-center p-4 border-2 rounded-lg flow-step" style="border-color: #E91E63;">
+                        <span class="text-4xl">🏬</span>
+                        <p class="font-bold">3. Merchant Agents</p>
+                        <p class="text-sm">Check inventory, price, & shipping. Send back bids.</p>
+                    </div>
+                     <div class="flow-arrow text-center md:rotate-0 rotate-90" style="color: #F44336;">→</div>
+                     <div class="text-center p-4 border-2 rounded-lg flow-step" style="border-color: #F44336;">
+                        <span class="text-4xl">🛒</span>
+                        <p class="font-bold">4. Transaction</p>
+                        <p class="text-sm">Consumer agent accepts best offer. Transaction executed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold text-center mb-4">Negotiation Challenges</h3>
+                <div class="chart-container" style="max-width: 400px; height: 300px;">
+                    <canvas id="negotiationChallengeChart"></canvas>
+                </div>
+                <p class="text-center mt-4">Establishing secure, standardized communication protocols is the primary barrier to enabling mass agent-to-agent negotiation.</p>
+            </div>
+        </section>
+
+        <section class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-4" style="color: #673AB7;">The New Discovery: From SEO to AEO</h2>
+            <p class="text-lg text-center max-w-3xl mx-auto mb-8">Product discovery is shifting from keyword-stuffing (Search Engine Optimization) to providing direct, synthesized answers (Answer Engine Optimization - AEO / Generative Experience Optimization - GEO). Merchants must now optimize their data to be understood by AI, not just indexed by crawlers.</p>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-2xl font-bold text-center mb-4">Impact: SEO vs. AEO/GEO</h3>
+                <div class="chart-container">
+                    <canvas id="seoAeoChart"></canvas>
+                </div>
+                <p class="text-center mt-4">AEO/GEO models show significantly higher conversion rates by matching user intent perfectly, not just surfacing related keywords. This drastically reduces discovery time.</p>
+            </div>
+
+             <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold text-center mb-4">AEO/GEO Challenges</h3>
+                <div class="chart-container" style="max-width: 400px; height: 300px;">
+                    <canvas id="aeoChallengeChart"></canvas>
+                </div>
+                <p class="text-center mt-4">The high cost of generative AI and managing potential 'hallucinations' (incorrect information) are key functional challenges for this new discovery model.</p>
+            </div>
+        </section>
+
+        <section class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-4" style="color: #673AB7;">Top 5 Agentic User Journeys</h2>
+            <p class="text-lg text-center max-w-3xl mx-auto mb-8">These end-to-end flows illustrate the power of consumer and merchant agents working in concert to complete complex tasks that are difficult or impossible for users today.</p>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex flex-wrap justify-center border-b-2" style="border-color: #BBDEFB;">
+                    <button class="tab-btn active px-4 py-2 font-semibold text-sm md:text-base" data-tab="journey1">1. Price Hunt</button>
+                    <button class="tab-btn px-4 py-2 font-semibold text-sm md:text-base" data-tab="journey2">2. Automated Restock</button>
+                    <button class="tab-btn px-4 py-2 font-semibold text-sm md:text-base" data-tab="journey3">3. Complex Assembly</button>
+                    <button class="tab-btn px-4 py-2 font-semibold text-sm md:text-base" data-tab="journey4">4. Proactive Service</button>
+                    <button class="tab-btn px-4 py-2 font-semibold text-sm md:text-base" data-tab="journey5">5. Dynamic Bundle</button>
+                </div>
+
+                <div class="mt-6">
+                    <div class="tab-panel active" id="journey1">
+                        <h4 class="text-xl font-bold text-center mb-4">Journey 1: The Multi-Factor Price Hunt</h4>
+                        <p class="text-center mb-6">User needs a product balancing price, shipping, and warranty.</p>
+                        <div class="flex flex-col items-center space-y-2 text-sm">
+                            <div class="p-3 border rounded-lg bg-gray-50">👤 "I need a 65" 4K TV, under $500, with a 2-year warranty, delivered by Tuesday."</div>
+                            <div class="font-bold text-2xl" style="color: #673AB7;">↓</div>
+                            <div class="p-3 border rounded-lg">🤖 (Consumer Agent) Queries 10+ Merchant Agents via marketplace API.</div>
+                            <div class="font-bold text-2xl" style="color: #9C27B0;">↓</div>
+                             <div class="p-3 border rounded-lg">🏬 (Merchant Agents) Bid with real-time options:<br/>[A: $480, 5-day ship, 1yr warr.]<br/>[B: $510, 2-day ship, 2yr warr.]<br/>[C: $499, 2-day ship, 2yr warr.]</div>
+                            <div class="font-bold text-2xl" style="color: #E91E63;">↓</div>
+                            <div class="p-3 border rounded-lg" style="background-color: #E8EAF6;">🤖 (Consumer Agent) Presents Option C as the best match. User confirms transaction.</div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="journey2">
+                        <h4 class="text-xl font-bold text-center mb-4">Journey 2: The Automated Restock</h4>
+                        <p class="text-center mb-6">User authorizes an agent to manage household consumables.</p>
+                        <div class="flex flex-col items-center space-y-2 text-sm">
+                            <div class="p-3 border rounded-lg bg-gray-50">👤 "Keep my household supplied with paper towels, Brand X, and never pay more than $20."</div>
+                            <div class="font-bold text-2xl" style="color: #673AB7;">↓</div>
+                            <div class="p-3 border rounded-lg">🤖 (Consumer Agent) Monitors usage/inventory. Detects stock is low.</div>
+                            <div class="font-bold text-2xl" style="color: #9C27B0;">↓</div>
+                             <div class="p-3 border rounded-lg">🏬 (Merchant Agents) Agent queries for best price under $20. Merchant Agent A responds with a $19.99 deal.</div>
+                            <div class="font-bold text-2xl" style="color: #E91E63;">↓</div>
+                            <div class="p-3 border rounded-lg" style="background-color: #E8EAF6;">🛒 (Transaction) Agent auto-purchases item. Notifies user: "Paper towels restocked for $19.99."</div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="journey3">
+                        <h4 class="text-xl font-bold text-center mb-4">Journey 3: The Complex Assembly</h4>
+                        <p class="text-center mb-6">User needs multiple components for a single project (e.g., building a PC).</p>
+                        <div class="flex flex-col items-center space-y-2 text-sm">
+                            <div class="p-3 border rounded-lg bg-gray-50">👤 "Build me a gaming PC for under $1500, optimized for streaming, compatible parts only."</div>
+                            <div class="font-bold text-2xl" style="color: #673AB7;">↓</div>
+                            <div class="p-3 border rounded-lg">🤖 (Consumer Agent) Breaks down request into: CPU, GPU, RAM, PSU, Case.</div>
+                            <div class="font-bold text-2xl" style="color: #9C27B0;">↓</div>
+                             <div class="p-3 border rounded-lg">🏬 (Merchant Agents) Agents bid on *individual components*. Agent checks for compatibility conflicts.</div>
+                            <div class="font-bold text-2xl" style="color: #E91E63;">↓</div>
+                            <div class="p-3 border rounded-lg" style="background-color: #E8EAF6;">🛒 (Transaction) Agent assembles a "virtual cart" from 4 different sellers, confirms compatibility, and presents one-click purchase for $1480.</div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="journey4">
+                        <h4 class="text-xl font-bold text-center mb-4">Journey 4: The Proactive Service</h4>
+                        <p class="text-center mb-6">An agent monitors product lifespan and service records.</p>
+                        <div class="flex flex-col items-center space-y-2 text-sm">
+                            <div class="p-3 border rounded-lg bg-gray-50">🏬 (Merchant Agent) Knows user bought a "Smart Fridge" 2 years ago. Warranty expires in 30 days.</div>
+                            <div class="font-bold text-2xl" style="color: #673AB7;">↓</div>
+                            <div class="p-3 border rounded-lg">🤖 (Consumer Agent) Receives proactive ping from Merchant Agent with an offer to extend warranty.</div>
+                            <div class="font-bold text-2xl" style="color: #9C27B0;">↓</div>
+                             <div class="p-3 border rounded-lg">🤖 (Consumer Agent) Checks user preferences: "auto-approve warranty extensions under $50."</div>
+                            <div class="font-bold text-2xl" style="color: #E91E63;">↓</div>
+                            <div class="p-3 border rounded-lg" style="background-color: #E8EAF6;">🛒 (Transaction) Agent accepts $45 extended warranty offer. Notifies user: "Your fridge warranty has been extended."</div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="journey5">
+                        <h4 class="text-xl font-bold text-center mb-4">Journey 5: The Dynamic Bundle</h4>
+                        <p class="text-center mb-6">User is planning an event and needs multiple related items.</p>
+                        <div class="flex flex-col items-center space-y-2 text-sm">
+                            <div class="p-3 border rounded-lg bg-gray-50">👤 "I'm hosting a backyard BBQ for 20 people this Saturday."</div>
+                            <div class="font-bold text-2xl" style="color: #673AB7;">↓</div>
+                            <div class="p-3 border rounded-lg">🤖 (Consumer Agent) Infers needs: food, drinks, plates, charcoal. Queries merchant agents for a "BBQ bundle."</div>
+                            <div class="font-bold text-2xl" style="color: #9C27B0;">↓</div>
+                             <div class="p-3 border rounded-lg">🏬 (Merchant Agent) Grocery agent dynamically creates a bundle: "BBQ Kit for 20" including all items, with 1-day shipping, for $175.</div>
+                            <div class="font-bold text-2xl" style="color: #E91E63;">↓</div>
+                            <div class="p-3 border rounded-lg" style="background-color: #E8EAF6;">🛒 (Transaction) Consumer agent presents the bundle. User confirms. One purchase, one delivery, from one agent.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-white" style="background-color: #3F51B5;">
+        <p class="opacity-90">This infographic analyzes the future of e-commerce driven by AI agents.</p>
+    </footer>
+
+    <script>
+        (function() {
+            function wrapLabels(labels, maxWidth = 16) {
+                return labels.map(label => {
+                    if (typeof label !== 'string' || label.length <= maxWidth) {
+                        return label;
+                    }
+                    const words = label.split(' ');
+                    const lines = [];
+                    let currentLine = '';
+                    words.forEach(word => {
+                        if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
+                            lines.push(currentLine.trim());
+                            currentLine = word + ' ';
+                        } else {
+                            currentLine += word + ' ';
+                        }
+                    });
+                    lines.push(currentLine.trim());
+                    return lines;
+                });
+            }
+
+            const mandatoryTooltipConfig = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            const chartColors = ['#673AB7', '#9C27B0', '#E91E63', '#F44336', '#3F51B5'];
+
+            const consumerLabels = ['Intent Ambiguity', 'Data Privacy', 'User Trust', 'Cross-Platform Integration', 'Personalization Cost'];
+            const consumerCtx = document.getElementById('consumerAgentChart');
+            if (consumerCtx) {
+                new Chart(consumerCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: wrapLabels(consumerLabels),
+                        datasets: [{
+                            label: 'Challenge Severity',
+                            data: [5, 4, 4, 3, 2],
+                            backgroundColor: 'rgba(103, 58, 183, 0.2)',
+                            borderColor: '#673AB7',
+                            pointBackgroundColor: '#673AB7',
+                        }]
+                    },
+                    options: { ...mandatoryTooltipConfig, maintainAspectRatio: false, scales: { r: { beginAtZero: true, max: 5 } } }
+                });
+            }
+
+            const merchantLabels = ['Real-time Sync', 'Data Integration', 'Platform Cost', 'API Security', 'SKU Complexity'];
+            const merchantCtx = document.getElementById('merchantAgentChart');
+            if (merchantCtx) {
+                 new Chart(merchantCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: wrapLabels(merchantLabels),
+                        datasets: [{
+                            label: 'Challenge Severity',
+                            data: [5, 5, 3, 3, 4],
+                            backgroundColor: 'rgba(233, 30, 99, 0.2)',
+                            borderColor: '#E91E63',
+                            pointBackgroundColor: '#E91E63',
+                        }]
+                    },
+                    options: { ...mandatoryTooltipConfig, maintainAspectRatio: false, scales: { r: { beginAtZero: true, max: 5 } } }
+                });
+            }
+            
+            const negotiationCtx = document.getElementById('negotiationChallengeChart');
+            if (negotiationCtx) {
+                new Chart(negotiationCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Protocol Standards', 'Security & Fraud', 'Error Handling', 'Scalability'],
+                        datasets: [{
+                            data: [40, 30, 20, 10],
+                            backgroundColor: chartColors
+                        }]
+                    },
+                    options: { ...mandatoryTooltipConfig, maintainAspectRatio: false, plugins: { ...mandatoryTooltipConfig.plugins, legend: { position: 'bottom' } } }
+                });
+            }
+
+            const seoAeoCtx = document.getElementById('seoAeoChart');
+            if (seoAeoCtx) {
+                const seoAeoLabels = ['Conversion Rate', 'User Satisfaction', 'Discovery Time (Lower is Better)'];
+                new Chart(seoAeoCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: wrapLabels(seoAeoLabels),
+                        datasets: [
+                            {
+                                label: 'Traditional SEO',
+                                data: [3, 5, 8],
+                                backgroundColor: '#9C27B0',
+                            },
+                            {
+                                label: 'Agentic (AEO/GEO)',
+                                data: [8, 9, 3],
+                                backgroundColor: '#673AB7',
+                            }
+                        ]
+                    },
+                    options: { ...mandatoryTooltipConfig, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 10 } } }
+                });
+            }
+            
+             const aeoCtx = document.getElementById('aeoChallengeChart');
+            if (aeoCtx) {
+                new Chart(aeoCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['AI Hallucinations', 'Compute Cost', 'Content Generation', 'Data Bias'],
+                        datasets: [{
+                            data: [35, 30, 25, 10],
+                            backgroundColor: chartColors.slice(1)
+                        }]
+                    },
+                    options: { ...mandatoryTooltipConfig, maintainAspectRatio: false, plugins: { ...mandatoryTooltipConfig.plugins, legend: { position: 'bottom' } } }
+                });
+            }
+
+            const tabContainer = document.querySelector('.bg-white .flex.flex-wrap');
+            if (tabContainer) {
+                const tabButtons = tabContainer.querySelectorAll('.tab-btn');
+                const tabPanelsContainer = tabContainer.nextElementSibling;
+                const tabPanels = tabPanelsContainer.querySelectorAll('.tab-panel');
+
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const tabId = button.dataset.tab;
+
+                        tabButtons.forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                        button.classList.add('active');
+
+                        tabPanels.forEach(panel => {
+                            panel.classList.remove('active');
+                            if (panel.id === tabId) {
+                                panel.classList.add('active');
+                            }
+                        });
+                    });
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
